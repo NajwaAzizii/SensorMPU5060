@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NajwaBelajarNavigationDrawer">
+
         <activity
             android:name=".HalamanUtama"
             android:exported="true"
@@ -19,7 +20,7 @@
             android:name=".ViewPager"
             android:exported="false" />
         <activity
-            android:name=".LayarPembuka"
+            android:name=".HalamanPengecekan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

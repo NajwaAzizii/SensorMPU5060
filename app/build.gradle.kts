@@ -3,11 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-
 android {
     namespace = "com.example.najwa_belajarnavigationdrawer"
     compileSdk = 36
-
 
     defaultConfig {
         applicationId = "com.example.belajarnavigationdrawer"
@@ -16,10 +14,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
 
     buildTypes {
         release {
@@ -30,21 +26,26 @@ android {
             )
         }
     }
+
     buildFeatures {
         viewBinding = true
     }
+    androidResources {
+        noCompress += "tflite"
+    }
+
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
 }
 
-
 dependencies {
-//    implementation ("fileTree(dir: 'libs', include: ['*.jar'])")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.5.1")
@@ -55,6 +56,7 @@ dependencies {
     implementation("junit:junit:4.13.2")
     implementation("androidx.test.ext:junit:1.1.3")
     implementation("androidx.test.espresso:espresso-core:3.4.0")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -62,7 +64,15 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // TENSORFLOW LITE
+    implementation("org.tensorflow:tensorflow-lite:2.14.0")
+    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
+
+    // Gson untuk membaca scaler_params.json
+    implementation("com.google.code.gson:gson:2.10.1")
 }
